@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0570bd" />
+    <meta name="description" content="Technology Meets Cuisine cafeteria kiosk login" />
+    <title>Technology Meets Cuisine | Cafeteria Kiosk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <!-- Left panel: welcome -->
+      <section class="welcome-panel">
+        <!-- Background decorations -->
+        <span class="rings" aria-hidden="true"></span>
+        <span class="blob" aria-hidden="true"></span>
+
+        <div class="brand">
+          <!-- Logo (change src to your image) -->
+          <div class="logo">
+            <img src="assets/logo.png" alt="Technology Meets Cuisine logo" />
+          </div>
+          Technology Meets Cuisine
+        </div>
+
+        <div class="welcome-content">
+          <span class="open-pill"><span class="open-dot"></span>Now serving</span>
+          <h2>Good food.<br /><span class="highlight">Great days.</span></h2>
+          <p>Your quick stop for fresh meals, campus favorites, and a little something to brighten your day.</p>
+        </div>
+
+        <!-- Wavy divider -->
+        <svg class="divider divider-v" viewBox="0 0 130 1000" preserveAspectRatio="none" aria-hidden="true">
+          <path class="wave-accent" d="M70,0 C35,160 105,320 65,480 C25,640 95,820 60,1000 L130,1000 L130,0 Z" />
+          <path class="wave-main" d="M86,0 C51,160 121,320 81,480 C41,640 111,820 76,1000 L130,1000 L130,0 Z" />
+        </svg>
+        <svg class="divider divider-h" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true">
+          <path class="wave-accent" d="M0,34 C180,4 330,64 520,34 C720,4 860,54 1000,26 L1000,80 L0,80 Z" />
+          <path class="wave-main" d="M0,50 C180,20 330,80 520,50 C720,20 860,70 1000,42 L1000,80 L0,80 Z" />
+        </svg>
+
+        <!-- Opening hours -->
+        <p class="service-note">Open Monday–Saturday · 8:00 AM–5:00 PM</p>
+      </section>
+
+      <!-- Right panel: login -->
+      <section class="login-panel">
+        <!-- Dark / light mode button -->
+        <button class="theme-toggle" id="theme-toggle" type="button" title="Switch to dark mode" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="theme-toggle-text">STI</span>
+          <span class="theme-toggle-icon"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4a8.5 8.5 0 1 0 11.2 11.2Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" /></svg></span>
+        </button>
+
+        <!-- Login form -->
+        <div class="login-box" id="login-box">
+          <p class="eyebrow">Cafeteria kiosk</p>
+          <h1>Welcome to Technology Meets Cuisine</h1>
+          <p class="subtitle">Choose your account type and sign in to continue.</p>
+
+          <!-- Student / Admin tabs -->
+          <div class="role-tabs" aria-label="Select account type">
+            <button class="role-tab active" type="button" aria-pressed="true" data-role="student">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 8 9-5 9 5-9 5-9-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><path d="M6.5 10v5c3 2.5 8 2.5 11 0v-5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg>
+              Student
+            </button>
+            <button class="role-tab" type="button" aria-pressed="false" data-role="admin">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.9 8.2 7 10 4.1-1.8 7-5.4 7-10V6l-7-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><path d="m9.5 12 1.6 1.6 3.7-3.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+              Admin
+            </button>
+          </div>
+
+          <!-- Email + password form -->
+          <form id="login-form" novalidate>
+            <div class="field">
+              <label for="email" id="email-label">Student email</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /><path d="m5 8 7 5 7-5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg>
+                <input id="email" type="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="you@school.edu" autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7" /><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg>
+                <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" />
+                <button class="show-password" id="show-password" type="button" aria-label="Show password">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12s3.2-7 9-7 9 7 9 7-3.2 7-9 7-9-7-9-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="remember"><input type="checkbox" />Remember me</label>
+              <button class="text-button" type="button">Forgot password?</button>
+            </div>
+
+            <div class="error" id="error" role="alert">Please enter both your email and password.</div>
+
+            <button class="submit-button" type="submit">
+              <span id="submit-text">Enter as student</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+          </form>
+          <p class="support"><b>Demo only -</b> <button class="text-button" id="demo-button" type="button">Use demo account</button></p>
+        </div>
+
+        <!-- Success screen -->
+        <div class="login-box success" id="success">
+          <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 12.5 4 4L18.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+          <p class="eyebrow" id="success-role">Student access</p>
+          <h2>You're all set!</h2>
+          <p>Welcome to Technology Meets Cuisine, <strong id="success-email"></strong>.</p>
+          <button class="submit-button" id="back-button" type="button">Back to sign in</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>

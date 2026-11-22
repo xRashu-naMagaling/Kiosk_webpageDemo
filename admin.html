@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0570bd" />
+  <title>Technology Meets Cuisine | Admin Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="portal.css" />
+</head>
+<body data-role="admin">
+<div class="app" id="app">
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <!-- Wavy edge -->
+    <svg class="edge" viewBox="0 0 90 1000" preserveAspectRatio="none" aria-hidden="true">
+      <path class="e-accent" d="M90,0 C90,90 40,120 40,250 C40,380 78,400 78,520 C78,640 38,660 38,780 C38,880 90,900 90,1000 L90,1000 L90,0 Z" />
+      <path class="e-main" d="M90,0 C90,90 50,120 50,250 C50,380 88,400 88,520 C88,640 48,660 48,780 C48,880 90,900 90,1000 L90,1000 L90,0 Z" />
+    </svg>
+    <a class="brand" href="admin.html">
+      <span class="logo"><img src="assets/logo.png" alt="Technology Meets Cuisine logo" /></span>
+      <span><b>Technology Meets Cuisine</b><small>Admin portal</small></span>
+    </a>
+    <p class="eyebrow">Main menu</p>
+    <!-- Nav links -->
+    <nav class="nav">
+      <a class="active" href="#overview"><svg class="i"><use href="#i-grid"/></svg>Overview</a>
+      <a href="#queue"><svg class="i"><use href="#i-ticket"/></svg>Queue</a>
+      <a href="#menu"><svg class="i"><use href="#i-menu"/></svg>Today's menu</a>
+      <a href="#settings"><svg class="i"><use href="#i-gear"/></svg>Settings</a>
+    </nav>
+    <!-- Open status, help, log out -->
+    <div class="side-bottom">
+      <div class="live"><b><i class="dot y" id="live-dot"></i><span id="live-title">Cafeteria is open</span></b><small>Mon–Sat · 8:00 AM–5:00 PM</small></div>
+      <a href="#" title="Coming soon"><svg class="i"><use href="#i-help"/></svg>Help center</a>
+      <a href="index.html" id="logout"><svg class="i"><use href="#i-logout"/></svg>Log out</a>
+    </div>
+  </aside>
+  <!-- Dark overlay for mobile menu -->
+  <div class="scrim" id="scrim"></div>
+
+  <div class="main">
+    <!-- ===== Top bar ===== -->
+    <header class="top">
+      <button class="burger" id="burger" type="button" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
+      <div class="top-title"><p class="eyebrow" id="today-date">Today</p><small id="top-sub">Cafeteria operations</small></div>
+      <button class="icon-btn" type="button" aria-label="Notifications"><svg class="i"><use href="#i-bell"/></svg><i class="dot"></i></button>
+      <div class="user"><span class="avatar" data-initials>AM</span><span class="who"><b data-name>Alex Morgan</b><small>Administrator</small></span></div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">STI<span class="theme-toggle-icon"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"></svg></span></button>
+    </header>
+
+    <!-- ===== Pages ===== -->
+    <main class="content">
+      <!-- ----- OVERVIEW ----- -->
+      <div class="view with-rail" id="v-overview">
+        <div class="main-col"><div class="hello">
+        <div>
+          <p class="eyebrow">Admin dashboard</p>
+          <h1 id="greet">Good afternoon, Alex!</h1>
+          <p>Here's what's happening at the canteen today.</p>
+        </div>
+        <div class="serving"><i class="dot" id="open-dot"></i><span><b id="open-title">Open now</b><small>Mon–Sat · 8:00 AM–5:00 PM</small></span></div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stats">
+        <div class="card stat"><div class="row"><span class="ico"><svg class="i"><use href="#i-ticket"/></svg></span><span class="chip" id="st-orders-chip">0 picked up</span></div><b id="st-orders">0</b><small>Orders today</small></div>
+        <div class="card stat"><div class="row"><span class="ico"><svg class="i"><use href="#i-clock"/></svg></span><span class="chip pending">In the kitchen</span></div><b id="st-serving">0</b><small>Preparing now</small></div>
+        <div class="card stat"><div class="row"><span class="ico"><svg class="i"><use href="#i-target"/></svg></span><span class="chip">At the counter</span></div><b id="st-ready">0</b><small>Ready for pickup</small></div>
+        <div class="card stat"><div class="row"><span class="ico"><svg class="i"><use href="#i-basket"/></svg></span><span class="chip" id="st-sales-chip">Avg ₱0 / order</span></div><b id="st-sales">₱0</b><small>Sales today</small></div>
+      </div>
+
+      <div class="grid">
+        <!-- Live queue table -->
+        <section class="card">
+          <div class="pad" style="padding-bottom:0">
+            <div class="tools">
+              <div><p class="eyebrow">Cafeteria queue</p><h2>Live queue</h2></div>
+              <div class="pills">
+                <button class="pill active" type="button" data-filter="all">All</button>
+                <button class="pill" type="button" data-filter="serving">Serving</button>
+                <button class="pill" type="button" data-filter="ready">Ready</button>
+                <button class="pill" type="button" data-filter="picked">Picked up</button>
+              </div>
+            </div>
+            <div class="search"><svg class="i"><use href="#i-search"/></svg><input id="search" type="search" placeholder="Search name, ticket, or item" aria-label="Search queue" /></div>
+          </div>
+          <div class="table"><div class="tr th q"><span>Student</span><span>Ticket</span><span>Status</span></div><div id="qrows"></div></div>
+        </section>
+        <section class="card">
+          <!-- Today's special card (photo: assets/food/<dish>.jpg) -->
+              <div class="photo" data-sp-photo></div>
+          <div class="details">
+            <div class="head"><p class="eyebrow">Today's special</p><span class="chip" data-sp="chip">Available</span></div>
+            <h2 data-sp="name">Honey Garlic Chicken</h2>
+            <p data-sp="desc">Tender glazed chicken served with steamed jasmine rice and seasonal vegetables.</p>
+            <div class="meta">
+              <div><svg class="i"><use href="#i-clock"/></svg>Available <b>8:00 AM – 5:00 PM</b></div>
+              <div><svg class="i"><use href="#i-target"/></svg>Price <b data-sp="price"></b></div>
+            </div>
+            <p class="mini" data-sp="mini"></p>
+            <a class="link" href="#menu">Change special <svg class="i"><use href="#i-arrow"/></svg></a>
+          </div>
+        </section>
+        </div>
+        </div>
+        <aside class="rail">
+          <!-- Today's menu (right side) -->
+          <div class="sec-head"><div><p class="eyebrow">Served today</p><h2>Today's menu</h2></div><a class="link" href="#menu">Manage <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="foods" id="quick"></div>
+        </aside>
+      </div>
+
+      <!-- ----- QUEUE ----- -->
+      <div class="view" id="v-queue" hidden><div class="hello"><div><p class="eyebrow">Queue</p><h1>Queue board</h1><p>Serving, ready for pickup, and picked up orders.</p></div></div>
+        <div class="board">
+          <section class="card pad"><div class="sec-head" style="margin:0"><p class="eyebrow">Serving</p><span class="chip blue" id="n-serving">0</span></div><div class="list" id="b-serving"></div></section>
+          <section class="card pad"><div class="sec-head" style="margin:0"><p class="eyebrow">Ready for pickup</p><span class="chip " id="n-ready">0</span></div><div class="list" id="b-ready"></div></section>
+          <section class="card pad"><div class="sec-head" style="margin:0"><p class="eyebrow">Picked up</p><span class="chip line" id="n-picked">0</span></div><div class="list" id="b-picked"></div></section>
+        </div>
+      </div>
+
+      <!-- ----- MENU MANAGEMENT ----- -->
+      <div class="view" id="v-menu" hidden><div class="hello"><div><p class="eyebrow">Today's menu</p><h1>Menu management</h1><p>What is being served and what is available right now.</p></div></div><div class="grid">
+        <section class="card"><div class="pad" style="padding-bottom:16px"><div class="sec-head" style="margin:0"><div><p class="eyebrow">Menu items</p><h2>Today's offerings</h2></div><button class="cta auto" id="add-item" type="button">+ Add item</button></div></div><div class="table" style="margin-top:0"><div class="tr mi th"><span>Item</span><span>Availability</span><span></span></div><div id="menu-rows"></div></div></section>
+        <section class="card">
+          <!-- Today's special card (photo: assets/food/<dish>.jpg) -->
+              <div class="photo" data-sp-photo></div>
+          <div class="details">
+            <div class="head"><p class="eyebrow">Today's special</p><span class="chip" data-sp="chip">Available</span></div>
+            <h2 data-sp="name">Honey Garlic Chicken</h2>
+            <p data-sp="desc">Tender glazed chicken served with steamed jasmine rice and seasonal vegetables.</p>
+            <div class="meta">
+              <div><svg class="i"><use href="#i-clock"/></svg>Available <b>8:00 AM – 5:00 PM</b></div>
+              <div><svg class="i"><use href="#i-target"/></svg>Price <b data-sp="price"></b></div>
+            </div>
+            <p class="mini" data-sp="mini"></p>
+            <label class="fl" for="sp-select" style="margin:4px 0 0">Change today's special</label><select id="sp-select" class="sp-select"></select>
+          </div>
+        </section>
+      </div></div>
+
+
+      <!-- ----- SETTINGS ----- -->
+      <div class="view" id="v-settings" hidden><div class="hello"><div><p class="eyebrow">Settings</p><h1>Service settings</h1><p>Basic options for the canteen. Demo only, nothing is stored yet.</p></div></div>
+        <section class="card pad" style="max-width:760px">
+          <div class="set-row"><div><b>Cafeteria opens</b><small>Opening time, Monday to Saturday</small></div><input type="time" value="08:00" aria-label="Opening time" /></div>
+          <div class="set-row"><div><b>Cafeteria closes</b><small>Closing time</small></div><input type="time" value="17:00" aria-label="Closing time" /></div>
+          <div class="set-row"><div><b>Open days</b><small>Fixed school schedule</small></div><span>Monday – Saturday</span></div>
+          <div class="set-row"><div><b>Allow pre-orders</b><small>Students can order from the Menu page</small></div><input type="checkbox" checked aria-label="Allow pre-orders" /></div>
+          <div class="set-row"><div><b>Notify when an order is ready</b><small>Sends an alert to the student</small></div><input type="checkbox" checked aria-label="Notify students" /></div>
+          <div style="padding-top:18px"><button class="cta auto" id="save" type="button">Save changes</button></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+<!-- Add / edit item dialog -->
+<dialog class="dlg" id="item-dlg">
+  <form id="item-form">
+    <h2 id="dlg-title">Add menu item</h2>
+    <label class="fl" for="f-name">Food name</label>
+    <input id="f-name" type="text" maxlength="40" required placeholder="e.g. Chicken Adobo Meal" />
+    <label class="fl" for="f-type">Type of food</label>
+    <select id="f-type"><option>Rice Meals</option><option>Snacks</option><option>Drinks</option><option>Desserts</option></select>
+    <label class="fl" for="f-price">Price (₱)</label>
+    <input id="f-price" type="number" min="0" step="1" required placeholder="0" />
+    <label class="fl" for="f-desc">Description (optional)</label>
+    <input id="f-desc" type="text" maxlength="120" placeholder="Shown when it is today's special" />
+    <label class="chk"><input type="checkbox" id="f-avail" checked /> Available to order</label>
+    <div class="dlg-actions"><button type="button" class="pill" id="f-cancel">Cancel</button><button class="cta auto" type="submit">Save item</button></div>
+  </form>
+</dialog>
+<!-- Toast message -->
+<div class="toast" id="toast" hidden></div>
+<!-- Scripts -->
+<script src="portal.js"></script>
+<script src="menu.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

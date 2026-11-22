@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0570bd" />
+  <title>Technology Meets Cuisine | Student Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="portal.css" />
+</head>
+<body data-role="student">
+<div class="app" id="app">
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <!-- Wavy edge -->
+    <svg class="edge" viewBox="0 0 90 1000" preserveAspectRatio="none" aria-hidden="true">
+      <path class="e-accent" d="M90,0 C90,90 40,120 40,250 C40,380 78,400 78,520 C78,640 38,660 38,780 C38,880 90,900 90,1000 L90,1000 L90,0 Z" />
+      <path class="e-main" d="M90,0 C90,90 50,120 50,250 C50,380 88,400 88,520 C88,640 48,660 48,780 C48,880 90,900 90,1000 L90,1000 L90,0 Z" />
+    </svg>
+    <a class="brand" href="#overview">
+      <span class="logo"><img src="assets/logo.png" alt="Technology Meets Cuisine logo" /></span>
+      <span><b>Technology Meets Cuisine</b><small>Student portal</small></span>
+    </a>
+    <p class="eyebrow">Main menu</p>
+    <!-- Nav links -->
+    <nav class="nav">
+      <a class="active" href="#overview"><svg class="i"><use href="#i-home"/></svg>Overview</a>
+      <a href="#menu"><svg class="i"><use href="#i-menu"/></svg>Menu<em class="badge" id="nav-count" hidden>0</em></a>
+      <a href="#queue"><svg class="i"><use href="#i-ticket"/></svg>Queue ticket</a>
+    </nav>
+    <!-- Open status, help, log out -->
+    <div class="side-bottom">
+      <div class="live"><b><i class="dot y" id="live-dot"></i><span id="live-title">Cafeteria is open</span></b><small>Mon–Sat · 8:00 AM–5:00 PM</small></div>
+      <a href="#" title="Coming soon"><svg class="i"><use href="#i-help"/></svg>Help center</a>
+      <a href="index.html" id="logout"><svg class="i"><use href="#i-logout"/></svg>Log out</a>
+    </div>
+  </aside>
+  <!-- Dark overlay for mobile menu -->
+  <div class="scrim" id="scrim"></div>
+
+  <div class="main">
+    <!-- ===== Top bar ===== -->
+    <header class="top">
+      <button class="burger" id="burger" type="button" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
+      <div class="top-title"><p class="eyebrow" id="today-date">Today</p><small id="top-sub">Student portal</small></div>
+      <button class="icon-btn" type="button" aria-label="Notifications"><svg class="i"><use href="#i-bell"/></svg><i class="dot"></i></button>
+      <div class="user"><span class="avatar" data-initials>JM</span><span class="who"><b data-name>Jamie Mendoza</b><small>Student</small></span></div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">STI<span class="theme-toggle-icon"><svg id="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"></svg></span></button>
+    </header>
+
+    <!-- ===== Pages ===== -->
+    <main class="content">
+
+      <!-- ----- OVERVIEW ----- -->
+      <div class="view with-rail" id="v-overview">
+        <div class="main-col">
+        <div class="hello">
+          <div>
+            <p class="eyebrow">Student dashboard</p>
+            <h1 id="greet">Good afternoon, Jamie!</h1>
+            <p>Here's what's cooking at the canteen today.</p>
+          </div>
+          <div class="serving"><i class="dot" id="open-dot"></i><span><b id="open-title">Open now</b><small>Mon–Sat · 8:00 AM–5:00 PM</small></span></div>
+        </div>
+
+        <div class="grid">
+          <div class="stack">
+            <section class="card special">
+              <!-- Today's special card (photo: assets/food/<dish>.jpg) -->
+              <div class="photo" data-sp-photo></div>
+              <div class="details">
+                <div class="head"><p class="eyebrow">Today's special</p><span class="chip" data-sp="chip">Available</span></div>
+                <h2 data-sp="name">Honey Garlic Chicken</h2>
+                <p data-sp="desc">Tender glazed chicken served with steamed jasmine rice and seasonal vegetables.</p>
+                <div class="meta">
+                  <div><svg class="i"><use href="#i-clock"/></svg>Available <b>8:00 AM – 5:00 PM</b></div>
+                  <div><svg class="i"><use href="#i-pin"/></svg>Pick up at <b>Main Counter</b></div>
+                </div>
+                <p class="mini" data-sp="mini"></p>
+              </div>
+            </section>
+
+            <!-- Upcoming menu -->
+            <section class="card pad">
+              <div class="sec-head">
+                <div><p class="eyebrow">This week</p><h2>Upcoming menu</h2></div>
+                <a class="link" href="#menu">View full menu <svg class="i"><use href="#i-arrow"/></svg></a>
+              </div>
+              <div class="list-row">
+                <div class="date" data-up="0"><small>TUE</small>21</div>
+                <div class="thumb"><img src="assets/food/chicken-teriyaki-bowl.jpg" alt="" onerror="this.remove()" />T</div>
+                <div class="grow">Chicken Teriyaki Bowl<small>With mixed vegetables</small></div>
+              </div>
+              <div class="list-row">
+                <div class="date" data-up="1"><small>WED</small>22</div>
+                <div class="thumb"><img src="assets/food/creamy-chicken-pasta.jpg" alt="" onerror="this.remove()" />P</div>
+                <div class="grow">Creamy Chicken Pasta<small>With garlic bread</small></div>
+              </div>
+            </section>
+          </div>
+
+          <div class="stack">
+            <section class="card">
+              <!-- Student profile -->
+              <div class="banner"></div>
+              <div class="profile">
+                <div class="big-avatar" data-initials>JM</div>
+                <h3 data-name>Jamie Mendoza</h3>
+                <small>College student</small>
+                <div class="info" style="margin-bottom:0;border-bottom:0;padding-bottom:0">
+                  <div><span class="ico"><svg class="i"><use href="#i-id"/></svg></span><span><span class="eyebrow">Student number</span><b>2023-01482</b></span></div>
+                  <div><span class="ico"><svg class="i"><use href="#i-cap"/></svg></span><span><span class="eyebrow">Program &amp; year</span><b>BS Information Technology · 2nd Year</b></span></div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+        </div>
+        <aside class="rail">
+          <!-- Today's menu (right side) -->
+          <div class="sec-head"><div><p class="eyebrow">Served today</p><h2>Today's menu</h2></div><a class="link" href="#menu">View full menu <svg class="i"><use href="#i-arrow"/></svg></a></div>
+          <div class="foods" id="quick"></div>
+        </aside>
+      </div>
+
+      <!-- ----- MENU ----- -->
+      <div class="view" id="v-menu" hidden>
+        <!-- Hero banner -->
+        <section class="hero">
+          <div>
+            <span class="pillbadge">Mobile ordering</span>
+            <h2>Skip the long canteen lines!</h2>
+            <p>Pre-order your favorite meals, pick your time slot, and collect without waiting.</p>
+          </div>
+          <div class="hero-info">
+            <span><b>Student:</b> <span data-name>Jamie Mendoza</span></span>
+            <span><b>ID:</b> 2023-01482</span>
+            <span><b>Open:</b> Mon–Sat, 8:00 AM–5:00 PM</span>
+          </div>
+        </section>
+
+        <div class="menu-grid">
+          <div>
+            <!-- Category filter + search -->
+            <div class="card toolbar">
+              <div class="pills">
+                <button class="pill active" type="button" data-cat="All Items">All Items</button>
+                <button class="pill" type="button" data-cat="Rice Meals">Rice Meals</button>
+                <button class="pill" type="button" data-cat="Snacks">Snacks</button>
+                <button class="pill" type="button" data-cat="Drinks">Drinks</button>
+                <button class="pill" type="button" data-cat="Desserts">Desserts</button>
+              </div>
+              <div class="search"><svg class="i"><use href="#i-search"/></svg><input id="msearch" type="search" placeholder="Search menu..." aria-label="Search menu" /></div>
+            </div>
+            <!-- Food grid -->
+            <div class="foods" id="foods"></div>
+          </div>
+
+          <!-- Food tray (cart) -->
+          <aside class="card pad tray">
+            <div class="sec-head"><h2>Food tray</h2><span class="chip" id="tray-count">0 items</span></div>
+            <div id="tray-list"></div>
+            <label class="fl" for="slot">Pickup time slot</label>
+            <select id="slot"></select>
+            <label class="fl" for="note">Special request</label>
+            <input id="note" type="text" placeholder="e.g. Extra sauce, no onions" maxlength="80" />
+            <div class="total"><span>Total due</span><strong id="total">₱0.00</strong></div>
+            <button class="cta" id="place" type="button" disabled>Place pre-order <svg class="i"><use href="#i-arrow"/></svg></button>
+          </aside>
+        </div>
+
+
+      </div>
+
+      <!-- ----- QUEUE TICKET ----- -->
+      <div class="view" id="v-queue" hidden>
+        <div class="hello"><div><p class="eyebrow">Queue ticket</p><h1>Your pickup pass</h1><p>Show this at the counter when your number is called.</p></div></div>
+        <div class="queue-grid">
+          <!-- Queue ticket -->
+          <div class="ticket" id="ticket"></div>
+          <!-- Recent orders -->
+          <section class="card pad"><div class="sec-head"><div><p class="eyebrow">Your orders</p><h2>Recent pre-orders</h2></div></div><div id="orders"></div></section>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<!-- Toast message -->
+<div class="toast" id="toast" hidden></div>
+<!-- Scripts -->
+<script src="portal.js"></script>
+<script src="menu.js"></script>
+<script src="student.js"></script>
+</body>
+</html>
